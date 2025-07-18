@@ -7,16 +7,33 @@ function addProblem(req,res,next){
         next(error)
     }
 }
-function getProblem(req,res){
-
+function getProblem(req,res,next){
+    try {
+        throw new NotImplementd('Get problem')
+    } catch (error) {
+        next(error)
+    }
 }
-function getProblems(req,res){
-    
-}
-function deleteProblems(req,res){
+function getProblems(req,res,next){
 
+    try {
+        throw new NotImplementd('Get Problems')
+    } catch (error) {
+        next(error)
+    }
 }
-function updateProblems(req,res){
-
+function deleteProblems(req,res,next){
+    try {
+        throw new NotImplementd('Delete Problem')
+    } catch (error) {
+        next(error)
+    }
+}
+function updateProblems(req,res,next){
+    try {
+        throw new NotImplementd('update Problems')
+    } catch (error) {
+        next(error)
+    }
 }
 export{addProblem,getProblem,getProblems,deleteProblems,updateProblems }
