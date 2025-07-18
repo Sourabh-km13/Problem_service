@@ -1,5 +1,11 @@
-function addProblem(req,res){
+import NotImplementd from "../errors/notimplemented.error.js"
 
+function addProblem(req,res,next){
+    try {
+        throw new NotImplementd('Add Problem')
+    } catch (error) {
+        next(error)
+    }
 }
 function getProblem(req,res){
 

@@ -8,7 +8,7 @@ problemRouter.get('/ping',(req,res)=>{
 })
 problemRouter.get('/:id',problemService.getProblem)
 problemRouter.get('/',problemService.getProblems)
-problemRouter.post('/:id',problemService.addProblem)
+problemRouter.post('/',problemService.addProblem)
 problemRouter.delete('/:id',problemService.deleteProblems)
 problemRouter.put('/:id',problemService.updateProblems)
 export default problemRouter
