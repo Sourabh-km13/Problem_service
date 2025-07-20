@@ -4,6 +4,8 @@ import { problemService } from '../../controllers/index.js'
 const problemRouter = express.Router()
 
 problemRouter.get('/ping',(req,res)=>{
+    
+    
     return res.json({"problemRouter":"hello from Problem Router"})
 })
 problemRouter.get('/:id',problemService.getProblem)
