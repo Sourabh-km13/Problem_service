@@ -25,10 +25,17 @@ function getProblem(req,res,next){
         next(error)
     }
 }
-function getProblems(req,res,next){
+async function getProblems(req,res,next){
 
     try {
-        throw new NotImplementd('Get Problems')
+        const problems = await problemService.getAllProblems()
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"fetched all problems successfully",
+            error:{},
+            data:problems
+
+        })
     } catch (error) {
         next(error)
     }
