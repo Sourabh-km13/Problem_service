@@ -7,6 +7,10 @@ import connectToDb from './config/db.config.js';
 const PORT = config.PORT
 const app = express()
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+
 app.get('/ping',(req,res)=>{
     return res.json({
         "msg":"pong"
