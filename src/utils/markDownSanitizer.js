@@ -5,18 +5,16 @@ import TurndownService from "turndown";
 
 function MarkdownSanitizer(markDown){
     const convertedHtml = marked(markDown)
-    console.log('converted Html',convertedHtml)
+
     const sanitizedHtml = sanitizeHtml(convertedHtml,{
-        allowedTags:sanitizeHtml.defaults.allowedTags
+        allowedTags:sanitizeHtml.defaults.allowedTags.concat('img')
     })
-    console.log('sanitized Html', sanitizedHtml);
+
     
     const turndownService = new TurndownService()
     
     const sanitizedMarkdown = turndownService.turndown(sanitizedHtml)
-    console.log('santized markdown',sanitizedMarkdown);
-    
-    console.log(sanitizedMarkdown)
+
     return sanitizedMarkdown
 }
 
