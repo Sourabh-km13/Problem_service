@@ -47,18 +47,33 @@ async function getProblems(req,res,next){
         next(error)
     }
 }
-function deleteProblems(req,res,next){
+async function deleteProblem(req,res,next){
     try {
-        throw new NotImplementd('Delete Problem')
+        console.log(req.params.id)
+        const deletedProblem = await problemService.deleteProblem(req.params.id)
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"deleted one problem",
+            error:{},
+            data:deletedProblem
+        })
     } catch (error) {
         next(error)
     }
 }
-function updateProblems(req,res,next){
+async function updateProblem(req,res,next){
     try {
-        throw new NotImplementd('update Problems')
+        console.log(req.body)
+        const updatedProblem = await problemService.updateProblems(req.body,req.params.id)
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:'updated one problem',
+            error:{},
+            data:updatedProblem,
+        })
+
     } catch (error) {
         next(error)
     }
 }
-export{addProblem,getProblem,getProblems,deleteProblems,updateProblems }
+export{addProblem,getProblem,getProblems,deleteProblem,updateProblem }
