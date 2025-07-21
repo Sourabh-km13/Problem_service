@@ -34,5 +34,17 @@ class ProblemRepository {
             throw error
         }
     }
+    async deleteProblem(id){
+        try {
+            const deletedProblem = await ProblemModel.deleteOne({"_id":id})
+            if(deletedProblem.deletedCount==0){
+                throw new NotFound("Problem",id)
+            }
+            return deletedProblem;
+        } catch (error) {
+            console.log('cannot delete given problem',error)
+            throw error
+        }
+    }
 }
 export default ProblemRepository

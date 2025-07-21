@@ -6,7 +6,6 @@ class ProblemService{
         this.problemRepository = problemRepository
     }
     async createProblem(problemData){
-        //sanitize markdown for description
         try {
             problemData.description = MarkdownSanitizer(problemData.description)
 
@@ -26,6 +25,12 @@ class ProblemService{
     async getProblem(problemId){
         const problem = await this.problemRepository.getProblem(problemId)
         return problem
+    }
+    async deleteProblem (problemID){
+        console.log(problemID)
+        const deletedProblem = await this.problemRepository.deleteProblem(problemID)
+        console.log("deletetedProblem",deletedProblem)
+        return deletedProblem
     }
 }
 export default ProblemService

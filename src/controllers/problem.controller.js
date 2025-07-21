@@ -47,9 +47,16 @@ async function getProblems(req,res,next){
         next(error)
     }
 }
-function deleteProblems(req,res,next){
+async function deleteProblem(req,res,next){
     try {
-        throw new NotImplementd('Delete Problem')
+        console.log(req.params.id)
+        const deletedProblem = await problemService.deleteProblem(req.params.id)
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"deleted one problem",
+            error:{},
+            data:deletedProblem
+        })
     } catch (error) {
         next(error)
     }
@@ -61,4 +68,4 @@ function updateProblems(req,res,next){
         next(error)
     }
 }
-export{addProblem,getProblem,getProblems,deleteProblems,updateProblems }
+export{addProblem,getProblem,getProblems,deleteProblem,updateProblems }
