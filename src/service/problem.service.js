@@ -27,10 +27,12 @@ class ProblemService{
         return problem
     }
     async deleteProblem (problemID){
-        console.log(problemID)
         const deletedProblem = await this.problemRepository.deleteProblem(problemID)
-        console.log("deletetedProblem",deletedProblem)
         return deletedProblem
+    }
+    async updateProblems(problemData, problemId){
+        const updatedProblem = await this.problemRepository.updateProblem(problemData,problemId)
+        return updatedProblem
     }
 }
 export default ProblemService

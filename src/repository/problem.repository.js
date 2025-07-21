@@ -1,13 +1,15 @@
 import NotFound from "../errors/notFound.error.js";
 import { ProblemModel } from "../models/index.js";
 
+
 class ProblemRepository {
     async createProblem(problemData){
         try {
             const problem = await ProblemModel.create({
                 title: problemData.title,
                 description:problemData.description,
-
+                difficulty:problemData.difficulty,
+                testcases:problemData.testCases,
             })
             return problem
         } catch (error) {
@@ -43,6 +45,25 @@ class ProblemRepository {
             return deletedProblem;
         } catch (error) {
             console.log('cannot delete given problem',error)
+            throw error
+        }
+    }
+    async updateProblem (problemData,problemId){
+        try {
+            const udpdatedProblem = await ProblemModel.updateOne(
+                {"_id":problemId},
+                {
+                    $set:{'title':problemData.title,
+                            'description':problemData.description,
+                            'difficulty':problemData.difficulty,
+                            'testcases':problemData.testcases,
+
+                    }
+                }
+            )
+            return udpdatedProblem
+        } catch (error) {
+            console.log('cannot update problem', error)
             throw error
         }
     }

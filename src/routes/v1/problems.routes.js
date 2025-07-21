@@ -12,5 +12,5 @@ problemRouter.get('/:id',problemService.getProblem)
 problemRouter.get('/',problemService.getProblems)
 problemRouter.post('/',problemService.addProblem)
 problemRouter.delete('/:id',problemService.deleteProblem)
-problemRouter.put('/:id',problemService.updateProblems)
+problemRouter.put('/:id',problemService.updateProblem)
 export default problemRouter
