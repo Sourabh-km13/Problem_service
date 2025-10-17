@@ -11,6 +11,7 @@ class ProblemRepository {
                 description:problemData.description,
                 difficulty:problemData.difficulty,
                 testcases:problemData.testCases,
+                codeStubs:problemData.codeStubs
             })
             return problem
         } catch (error) {
